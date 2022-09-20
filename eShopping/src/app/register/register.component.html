@@ -1,0 +1,114 @@
+<!--<h2>Visa Power</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="register(uname,pwd)">-->
+<!--reactive validation start-->
+<!--<table>
+  <tr>
+    <td>
+      User Name
+    </td>
+    <td>
+      <input type="text" class="form-control" formControlName="uname">
+      <span *ngIf="uname.touched && !uname.valid" appUserformchanges>
+        User Name cannot be empty
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Password
+    </td>
+    <td>
+      <input type="text" class="form-control" formControlName="pwd" minlength="6">
+      <span *ngIf="pwd.touched && !pwd.valid" appUserformchanges>
+        Password cannot be empty
+      </span>
+
+      <span *ngIf="pwd.errors?.['minlength']" appUserformchanges>
+        Password should be 6 letters long
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Retype Password
+    </td>
+    <td>
+      <input type="text" class="form-control" formControlName="rpwd" minlength="6">
+      <span *ngIf="rpwd.touched && !rpwd.valid" appUserformchanges>
+        Retype Password cannot be empty
+      </span>
+
+      <span *ngIf="rpwd.errors?.['minlength']" appUserformchanges>
+        Retype Password should be 6 letters long
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <button class="btn btn-primary">Register</button>
+    </td>
+  </tr>
+</table>-->
+<!--reactive validation end-->
+<!--custom validation start-->
+<!--<table>
+  <tr>
+    <td>Username</td>
+    <td><input type="text" formControlName="uname" class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" formControlName="pwd"  class="form-control"></td>
+    <span *ngIf="pwd.invalid">-->
+<!--{{pwd.errors |json}}-->
+<!--</span>
+  </tr>
+  <tr>
+    <td>Re-Type Password</td>
+    <td><input type="password" formControlName="rpwd"  class="form-control"></td>
+  </tr>
+  <tr>
+    <td>
+      <button class="btn btn-success" >Register</button>
+    </td>
+    <td>
+      <button class="btn btn-danger">Cancel</button>
+    </td>
+  </tr>
+</table>-->
+<!--custom validation end-->
+<!--</form>-->
+
+<!--authentication demo-->
+<form [formGroup]="userForm" (ngSubmit)="register()">
+  <table>
+    <tr>
+      <td>Username</td>
+      <td><input type="text" formControlName="username"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="text" [value]="encodedPass" formControlName="password" (blur)="encodePass()"></td> <!--[value]="encodedPass" authentication method-->
+      <span *ngIf="password.invalid">
+        {{password.errors |json}}
+      </span>
+    </tr>
+    <tr>
+      <td>Re-Type Password</td>
+      <td><input type="password" formControlName="rePass"></td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-success">Register</button>
+      </td>
+      <td>
+        <button class="btn btn-danger">Cancel</button>
+      </td>
+    </tr>
+  </table>
+
+</form>

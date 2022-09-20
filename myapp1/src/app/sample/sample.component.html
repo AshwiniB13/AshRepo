@@ -1,0 +1,30 @@
+<p>sample works!</p>
+Hello
+{{
+customer_name
+}}...
+<br />
+Age: {{
+age
+}}
+<br />
+<input type="text" value="{{customer_name}}" /><!--property binding  not a  best practice-->
+<br />
+<input type="text" [value]="customer_name" /> <!--property binding value: best practice-->
+<br />
+<div [class]="chooseclass">
+  <!--property binding class-->
+  this will show the style
+</div>
+<button class="btn btn-primary" (click)="chnagestyle()"> change the style</button> <!--event binding-->
+<hr />
+<span [class]="toggleStyle" (click)="toggle()"></span>
+<hr />
+<span [class]="togglevalue?'glyphicon glyphicon-heart':'glyphicon glyphicon-heart-empty'" (click)="togglevalue=!togglevalue"></span>
+<hr />
+
+<span [class]="thumbsup" (click)="thumbsupevent()"></span>{{thumbsupcount}}
+<br />
+<input type="test" [value]="customer_name" #cname (change)="changename(cname.value)" />
+
+<input type="text" [(ngModel)]="customer_name">

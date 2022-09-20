@@ -1,0 +1,22 @@
+
+<div *ngIf="cartproducts.length>0; else noprod">
+  <h1>Cart details</h1>
+  <div class="col-md-4 alert alert success" *ngFor="let prod of cartproducts">
+    <span>Id: {{prod.id}}</span>
+    <br>
+    Name: {{prod.name}}
+    <br>
+    <!--Product: {{prod.product}}
+    <br>-->
+    Quantity:{{prod.quantity}}
+    <br />
+    Price:{{prod.price}}
+    <br />
+    <img [src]="prod.pic" alt="NO image" height="200" width="400" >
+  </div>
+</div>
+<ng-template #noprod>
+  <span class="alert alert-danger">
+    No Products added yet
+  </span>
+</ng-template>

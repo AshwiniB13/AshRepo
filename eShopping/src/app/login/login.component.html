@@ -1,0 +1,25 @@
+<form [formGroup]="loginForm" (ngSubmit)="login(uname,pwd)">
+  <table>
+    <tr>
+      <td>Username</td>
+      <td><input type="text" formControlName="uname" class="form-control"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>
+        <input type="password" formControlName="pwd"  class="form-control">
+        <span *ngIf="pwd.invalid">
+          <!--{{pwd.errors |json}}-->
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-success">Login</button>
+      </td>
+      <td>
+        <button class="btn btn-danger">Cancel</button>
+      </td>
+    </tr>
+  </table>
+</form>

@@ -1,0 +1,62 @@
+<!--<p>customer works!</p>
+Hello
+{{
+customer_name
+}}...
+<br />
+Age: {{
+customer_age
+}}
+<br />
+Phone: {{
+customer_phone
+}}
+<br />
+<span class="glyphicon glyphicon-star"></span>
+<br />
+Customer Name :
+<input type="text" [(ngModel)]="customer_name">
+<br />
+Age :
+<input type="text" [(ngModel)]="customer_age">
+<br />
+Phone Number :
+<input type="text" [(ngModel)]="customer_phone">-->
+
+<br />
+<br />
+<br />
+<br />
+
+
+<!--<p>customer works!</p>
+<div class="alert alert success">
+  Id: {{customer.id}}
+  <br>
+  Name: {{customer.name}}
+  <br>
+  Age: {{customer.age}}
+  <br>
+  <img (click)="showEvent()" [src]="customer.pic" alt="NO image" height="200" width="200">
+</div>-->
+
+
+child to parent communication
+<p>customer works!</p>
+<div class="alert alert success">
+  Id: {{customerParentToChild.id}}
+  <br>
+  Name: {{customerParentToChild.name}}
+  <br>
+  Age: {{customerParentToChild.age}}
+  <br>
+  <img (click)="showEvent()" [src]="customerParentToChild.pic" alt="NO image" height="200" width="200">
+  <div appShowchange>
+    <!-- {{dob | date:'dd-MMM-yyyy'}} -->
+    {{ customerParentToChild| json}}
+  </div>
+</div>
+
+
+
+

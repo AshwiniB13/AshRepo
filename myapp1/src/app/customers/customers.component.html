@@ -1,0 +1,112 @@
+<p>customers works!</p>
+
+
+<!--ngfor -  service should have added customers-->
+<!--
+<div class="alert alert success" *ngFor="let customer of customers">
+  Id: {{customer.id}}
+  <br>
+  Name: {{customer.name}}
+  <br>
+  Age: {{customer.age}}
+  <br>
+  <img [src]="customer.pic" alt="NO image" height="200" width="200">
+</div>-->
+<!--ngif-->
+<!--<div class="alert alert-danger" *ngIf="customers.length==0">No customers yet</div>
+<div class="alert alert success" *ngFor="let customer of customers">
+  Id: {{customer.id}}
+  <br>
+  Name: {{customer.name}}
+  <br>
+  Age: {{customer.age}}
+  <br>
+  <img [src]="customer.pic" alt="NO image" height="200" width="200">
+</div>-->
+<!--if else-->
+<!--<div *ngIf="customers.length>0; else nocust">
+  <h1>Customer details</h1>
+  <div class="alert alert success" *ngFor="let customer of customers">
+    Id: {{customer.id}}
+    <br>
+    Name: {{customer.name}}
+    <br>
+    Age: {{customer.age}}
+    <br>
+    <img [src]="customer.pic" alt="NO image" height="200" width="200">
+  </div>
+</div>
+<ng-template #nocust>
+  <span class="alert alert-danger">
+    No customers yet
+  </span>
+</ng-template>-->
+<!--hidden-->
+<!--<div [hidden]="customers.length==0">-->
+<!--<div *ngIf="customers.length>0; else nocust">-->
+<!--<h1>Customer details</h1>
+  <div class="alert alert success" *ngFor="let customer of customers">
+    Id: {{customer.id}}
+    <br>
+    Name: {{customer.name}}
+    <br>
+    Age: {{customer.age}}
+    <br>
+    <img [src]="customer.pic" alt="NO image" height="200" width="200">
+  </div>
+</div>
+<ng-template #nocust>
+  <span class="alert alert-danger">
+    No customers yet
+  </span>
+</ng-template>-->
+
+<!--ngswitch-->
+<!--<div *ngIf="customers.length>0; else nocust">
+  <h1>Customer details</h1>
+  <div class="alert alert success" *ngFor="let customer of customers">
+    Id: {{customer.id}}
+    <br>
+    Name: {{customer.name}}
+    <br>
+    Age: {{customer.age}}
+    <br>
+    <img [src]="customer.pic" alt="NO image" height="200" width="200">
+  </div>
+</div>
+<ng-template #nocust>
+  <span class="alert alert-danger">
+    No customers yet
+  </span>
+</ng-template>-->
+
+<!--parent to child communication-->
+<!--<p>customer works!</p>
+<div [hidden]="customers.length==0">-->
+  <!-- <div  *ngIf="customers.length>0; else nocust"> -->
+  <!--<h1>Customer details</h1>
+  <div class="alert alert success" *ngFor="let cust of customers">
+    <app-customer [customerParentToChild]="cust"></app-customer>
+  </div>
+</div>
+<ng-template #nocust>
+  <span class="alert alert-danger">
+    No customers yet
+  </span>
+</ng-template>-->
+
+
+<!--child to parent communication-->
+<p>customer works!</p>
+<div [hidden]="customers.length==0">
+  <!-- <div  *ngIf="customers.length>0; else nocust"> -->
+  <h1>Customer details</h1>
+  <div class="alert alert success" *ngFor="let cust of customers">
+    <app-customer [customerParentToChild]="cust" (clickcheck)="handleCheck($event)"></app-customer>
+  </div>
+</div>
+<ng-template #nocust>
+  <span class="alert alert-danger">
+    No customers yet
+  </span>
+</ng-template>

@@ -1,0 +1,44 @@
+<h2>Visa Power</h2>
+
+<form [formGroup]="myForm" (ngSubmit)="buy()" >
+  <table>
+    <tr>
+      <td>
+        Card Holder Name
+      </td>
+      <td>
+        <input type="text" class="form-control" formControlName="cname">
+        <span class="alert alert-danger" *ngIf="cname.touched && !cname.valid">
+          reactive forms validation
+          Card Holder Name cannot be empty
+        </span>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>
+        Card Number
+      </td>
+      <!--<td><input type="text" class="form-control" appCardformat></td>-->
+      <td>
+        <input type="text" class="form-control" [appCardformat]="'Hello passing input value to directive'"  formControlName="cnumber">
+        <span class="alert alert-danger"  *ngIf="cnumber.touched && !cnumber.valid">
+          <!--reactive forms validation
+          import recative forms
+          create a formgroup objects
+          add formcontrol to the project
+          associate the controls from ts to html
+          add validations to the control
+          check them in html-->
+          Card Number cannot be empty
+        </span>
+      </td> <!--passing inpu value to directive-->
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-primary" >Make Payment</button>
+      </td>
+    </tr>
+  </table>
+</form>

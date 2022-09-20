@@ -1,0 +1,38 @@
+
+<div class="col-md-4 alert alert success" *ngFor="let product of products">
+  <span>Id: {{product.id}}</span>
+  <br>
+  Name: {{product.name}}
+  <br>
+  <!--Product: {{product.product}}
+  <br>-->
+  Quantity:{{product.quantity}}
+  <br />
+  Price:{{product.price}}
+  <br />
+  Likes{{product.likes}}
+  <br />
+  <img [src]="product.pic" alt="NO image" height="200" width="400">
+  <br /><br /><br />
+
+  <table>
+    <tr>
+      <td>
+        <label class="form-control">Quantity</label>
+      </td>
+      <td>
+        <input type="number" class="form-control" #quantity>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button class="btn btn-success" (click)="UpdateQuantity(product,quantity.value)">Update</button>
+      </td>
+      <td>
+        <button class="btn btn-danger">Cancel</button>
+      </td>
+    </tr>
+  </table>
+</div>
+

@@ -1,0 +1,87 @@
+<!--<app-products class="row"></app-products>-->
+<!--<h1>
+  Hello World!! {{title}}
+</h1>-->
+<!-- <app-sample></app-sample>
+<app-first></app-first> -->
+<!-- <app-customer></app-customer> -->
+<!--<div [ngSwitch]="choice">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">E - Shopping</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a (click)="choice='home'">Home</a></li>
+        <li><a (click)="choice='show'" class="nav-item nav-link">Products</a></li>
+        <li> <a (click)="choice='edit'" class="nav-item nav-link">Edit</a></li>
+        <li> <a (click)="choice='add'" class="nav-item nav-link">Cart</a></li>
+  <li> <a (click)="choice='signup'" class="nav-item nav-link">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div *ngSwitchCase="'show'">
+    <app-eproducts class="row"></app-eproducts>
+  </div>
+
+  <div *ngSwitchCase="'add'">
+    <app-ecart class="row"></app-ecart>
+  </div>
+
+  <div *ngSwitchCase="'edit'">
+    <app-edit-eproduct></app-edit-eproduct>
+  </div>
+   <div *ngSwitchCase="'signup'">
+    <app-register></app-register>
+  </div>-->
+<!--<p>
+  {{data | text:11}}-->
+<!--pipes-->
+<!--</p>-->
+<!--</div>-->
+<!--routing start-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">E - Shopping</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li> <a class="nav-item nav-link" routerLink="">Navbar</a></li>
+      <li class="active"><a (click)="choice='home'">Home</a></li>
+      <li><a routerLink="products" class="nav-item nav-link">Products</a></li>
+      <li> <a routerLink="edit" class="nav-item nav-link">Edit</a></li>
+      <li><a routerLink="cart" class="nav-item nav-link">Cart</a></li>
+      <li><a routerLink="list" class="nav-item nav-link">Product List</a></li>
+      <li><a routerLink="emp" class="nav-item nav-link">Employees</a></li>
+      <li><a routerLink="post" class="nav-item nav-link">Post</a></li>
+      <li><a routerLink="search" class="nav-item nav-link">Search Images</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+<!--routing end-->
+
+
+<!--task start-->
+<!--<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">E - Shopping</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li> <a routerLink="register" class="nav-item nav-link">Register</a></li>
+      <li><a routerLink="login" class="nav-item nav-link">Login</a></li>
+      <li><a routerLink="products" class="nav-item nav-link">Products</a></li>
+    </ul>
+  </div>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>-->
+<!--task end-->

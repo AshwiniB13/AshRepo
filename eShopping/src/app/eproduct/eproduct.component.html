@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;" *ngIf="checkQuanity()>0">
+  <img class="card-img-top" [src]="product.pic" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{product.name |uppercase}}
+    </h5>
+    <p class="card-text">
+      This PHONE is priced @ <b>{{product.price |currency:'INR'}}</b> <!--pipes currency we can search by searching for ".angular"-->
+      <br>
+      The stock available now is {{product.quantity}}
+    </p>
+    <a class="btn btn-primary" (click)="buyPizza()">Add To Cart</a>
+  </div>
+  <div>Last Updated : {{dob | date:'dd-MMM-yyyy' }}</div>
+  <div appShowchange>
+    <!-- {{dob | date:'dd-MMM-yyyy'}} -->
+    {{ product| json}}
+  </div>
+</div>

@@ -1,0 +1,145 @@
+<!--<p>products works!</p>-->
+
+<div [ngSwitch]="choice">
+  <!--bootstrap link-->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">E - Shopping</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a (click)="choice='home'">Home</a></li>
+        <li><a (click)="choice='show'">ShowProducts</a></li>
+        <li><a (click)="choice='add'">AddProduct</a></li>
+        <li><a (click)="choice='cart'">Cart</a></li>
+        <li><a (click)="choice='edit'">Edit Quantity</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div *ngSwitchCase="'home'">
+    <h4>E- shopping website</h4>
+    <span>Products</span>
+  </div>
+
+  <div *ngSwitchCase="'show'">
+    <h4>Added Products!</h4>
+      <div class="col-md-4 alert alert success" *ngFor="let product of products">
+        <span>Id: {{product.id}}</span>
+        <br>
+        Name: {{product.name}}
+        <br>
+        Quantity:{{product.quantity}}
+        <br />
+        Price:{{product.price}}
+        <br />
+        Likes{{product.likes}}
+        <br />
+        <img [src]="product.pic" alt="NO image" height="200" width="300">
+        <br /><br />
+        <button class="btn btn-success" (click)="AddToCart(product)">Add Product</button>
+      </div>
+    </div>
+
+  <div *ngSwitchCase="'add'">
+    <h4>Add Product</h4>
+    <table>
+      <tr>
+        <td>
+          <label class="form-control">Product ID</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="product.id">
+        </td>
+      </tr>
+
+      <!--<tr>
+        <td>
+          <label class="form-control">Product Name</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" [(ngModel)]="product.product">
+        </td>
+      </tr>-->
+      <tr>
+        <td>
+          <label class="form-control">Quantity</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="product.quantity">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="form-control">Price</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="product.price">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label class="form-control">Likes</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="product.likes">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="form-control">Product Pic</label>
+        </td>
+        <td>
+          <input type="file" class="form-control" #cpic>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-success" (click)="insertProduct(cpic)">Add Product</button>
+        </td>
+        <td>
+          <button class="btn btn-danger">Cancel</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+
+  <div *ngSwitchCase="'cart'">
+    <app-mycart  class="row"></app-mycart>
+  </div>
+
+  <div *ngSwitchCase="'edit'">
+
+    <app-edit-product  class="row"></app-edit-product>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!--<h1>Search Product</h1>
+<table>
+  <tr>
+    <td>
+      <label class="form-control">Product ID</label>
+    </td>
+    <td>
+      <input type="number" class="form-control" [(ngModel)]="product.id">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button class="btn btn-success" #id (click)="SearchProduct(id)">Search</button>
+    </td>
+    <td>
+      <button class="btn btn-danger">Cancel</button>
+    </td>
+  </tr>
+</table>-->

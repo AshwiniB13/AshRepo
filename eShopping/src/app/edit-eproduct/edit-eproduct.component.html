@@ -1,0 +1,68 @@
+<div >
+  <select (change)="getProduct(pid.value)" #pid>
+    <option value="0">--Select Id--</option>
+    <option *ngFor="let p of products" [value]="p.id">{{p.id}}</option>
+  </select>
+  <br />
+  <div class="row">
+    <div class="col-md-4" *ngIf="product.id">
+      <label class="form-control">Product Name</label>
+      <input type="text" [(ngModel)]="product.name" class="form-control" required minlength="5" #pname="ngModel">
+      <span class="alert alert-danger" *ngIf="pname.touched && pname.invalid">
+        <span *ngIf="pname.errors['required']">
+          Product Name cannot be empty
+        </span>
+        <span *ngIf="pname.errors['minlength']">
+          Product Name should be 5 letters long
+        </span>
+      </span>
+      <label class="form-control">Product Price</label>
+      <input type="number" [(ngModel)]="product.price" class="form-control" #pprice="ngModel" required min="500">
+      <span class="alert alert-danger" *ngIf="pprice.touched && pprice.invalid">
+        <span *ngIf="pprice.errors['required']">
+          Product Price cannot be empty
+        </span>
+        <span *ngIf="pprice.errors['min']">
+          Product Price has to be positive
+        </span>
+      </span>
+      <label class="form-control">Product Quantity</label>
+      <input type="number" [(ngModel)]="product.quantity" class="form-control" #pquantity="ngModel" required min="0">
+      <span class="alert alert-danger" *ngIf="pquantity.touched && pquantity.invalid">
+        <!--template driven validation-->
+        <span *ngIf="pquantity.errors['required']">
+          Product Quantity cannot be empty
+        </span>
+        <span *ngIf="pquantity.errors['min']">
+          Product Quantity has to be positive
+        </span>
+      </span>
+
+      <!--<button class="btn btn-warning" *ngIf="pname.valid && pprice.valid && pquantity.valid" (click)="updateProduct()">Update</button>-->
+
+      <button class="btn btn-warning" [disabled]="!pname.valid || !pprice.valid || !pquantity.valid" (click)="updateProduct()">Update</button>
+      <button class="btn btn-warning"  (click)="deleteProduct()">Delete</button>
+
+      <!--<button class="btn btn-warning"  (click)="updateProduct()">Update</button>-->
+
+    </div>
+  </div>
+  <br /><br /><br /><br />
+  <h3>Add Product</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <label class="form-control">Product Id</label>
+      <input type="text" class="form-control" [(ngModel)]="addproduct.id">
+      <label class="form-control">Product Name</label>
+      <input type="text" class="form-control" required minlength="5" [(ngModel)]="addproduct.name">
+      <label class="form-control">Product Price</label>
+      <input type="number" class="form-control" required min="500" [(ngModel)]="addproduct.price" />
+      <label class="form-control">Product Quantity</label>
+      <input type="number" class="form-control" required min="0" [(ngModel)]="addproduct.quantity">
+      <label class="form-control">Product images</label>
+      <input type="file" id="img" name="product.pic" accept="image/*" [(ngModel)]="addproduct.pic">
+
+      <button class="btn btn-warning" (click)="addProduct()">Add</button>
+    </div>
+  </div>
+</div>
